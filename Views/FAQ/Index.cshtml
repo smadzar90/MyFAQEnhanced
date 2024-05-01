@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model List<MyFAQEnhanced.Models.FAQ>;
+
+<h1>Index</h1>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<label><strong>The total number of records is: @ViewBag.Count</strong></label>
+<div class="table-responsive mt-2">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">
+                    Question
+                </th>
+                <th scope="col">
+                    Topic
+                </th>
+                <th scope="col">
+                    Category
+                </th>
+                <th scope="col">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td scope="row">
+                        @Html.DisplayFor(modelItem => item.Question)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Topic.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        <a class="links" asp-action="Edit" asp-route-id="@item.FAQId">Edit</a>
+                        <a class="links" asp-action="Details" asp-route-id="@item.FAQId">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.FAQId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

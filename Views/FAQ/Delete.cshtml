@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Delete";
+}
+
+@model MyFAQEnhanced.Models.FAQ;
+
+<h1>Delete</h1>
+<h4>Are you sure you want to delete this?</h4>
+<h4>FAQ</h4>
+
+<form asp-action="DeleteFAQ" asp-route-id="@Model.FAQId" method="post">
+    <div class="container mt-3 border-top">
+        <div class="row mt-2 py-2">
+            <div class="col-sm-2 p-0">
+                <strong>Question</strong>
+            </div>
+            <div class="col-sm-10 p-0">
+                @Html.DisplayFor(model => model.Question)
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-sm-2 p-0">
+                <strong>Answer</strong>
+            </div>
+            <div class="col-sm-10 p-0">
+                @Html.DisplayFor(model => model.Answer)
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-sm-2 p-0">
+                <strong>Topic</strong>
+            </div>
+            <div class="col-sm-10 p-0">
+                @Html.DisplayFor(model => model.Topic.Name)
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col-sm-2 p-0">
+                <strong>Category</strong>
+            </div>
+            <div class="col-sm-10 p-0">
+                @Html.DisplayFor(model => model.Category.Name)
+            </div>
+        </div>
+        <div class="row pt-3 pb-2">
+            <div class="col d-flex align-items-center p-0">
+                <div class="d-inline">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </div>
+                <div class="d-inline ms-2">
+                    <a class="link" asp-action="Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

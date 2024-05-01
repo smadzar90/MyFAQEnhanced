@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Search";
+}
+
+<h2>Search for FAQ</h2>
+
+<form action="filterFAQs" method="post">
+    <div class="container border-top mt-3 p-0">
+        <div class="row mt-2">
+            <div class="col-md-3">
+                <div class="form-group mt-3">
+                    <label id="question" class="control-label">Question</label>
+                    <input name="searchItem" class="form-control mt-2" />
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary">Search by Question</button>
+                </div>
+                <div class="form-group mt-3">
+                    <a asp-action="Index">Back To List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Details";
+}
+
+@model MyFAQEnhanced.Models.FAQ;
+
+<h1>Details</h1>
+<h4>FAQ</h4>
+
+<div class="container mt-3 border-top">
+    <div class="row mt-2 py-2">
+        <div class="col-sm-2 p-0">
+            <strong>Question</strong>
+        </div>
+        <div class="col-sm-10 p-0">
+            @Html.DisplayFor(model => model.Question)
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-sm-2 p-0">
+            <strong>Answer</strong>
+        </div>
+        <div class="col-sm-10 p-0">
+            @Html.DisplayFor(model => model.Answer)
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-sm-2 p-0">
+            <strong>Topic</strong>
+        </div>
+        <div class="col-sm-10 p-0">
+            @Html.DisplayFor(model => model.Topic.Name)
+        </div>
+    </div>
+    <div class="row py-2">
+        <div class="col-sm-2 p-0">
+            <strong>Category</strong>
+        </div>
+        <div class="col-sm-10 p-0">
+            @Html.DisplayFor(model => model.Category.Name)
+        </div>
+    </div>
+    <div class="row pt-3 pb-2">
+        <div class="col p-0">
+            <a class="links d-inline" asp-action="Edit" asp-route-id="@Model.FAQId">Edit</a>
+            <a class="d-inline" asp-action="Index">Back to List</a>
+        </div>
+    </div>     
+</div>

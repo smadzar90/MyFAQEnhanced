@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Create";
+}
+
+@model MyFAQEnhanced.Models.FAQ;
+
+<h1>Create</h1>
+<h4>FAQ</h4>
+
+<div class="container border-top mt-3 p-0">
+    <div class="row mt-2">
+        <div class="col-md-5">
+            <form asp-action="Create">
+                <div class="form-group mt-3">
+                    <label asp-for="Question" class="control-label"></label>
+                    <input asp-for="Question" class="form-control mt-2" />
+                    <span asp-validation-for="Question" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="Answer" class="control-label"></label>
+                    <input asp-for="Answer" class="form-control mt-2" />
+                    <span asp-validation-for="Answer" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="TopicId" class="control-label">Topic</label>
+                    <select asp-for="TopicId" class="form-select mt-2">
+                        <option value="" disabled selected>Select a topic</option>
+                        @foreach (var c in ViewBag.Topics)
+                        {
+                            <option value="@c.TopicId">@c.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="TopicId" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="CategoryId" class="control-label">Category</label>
+                    <select asp-for="CategoryId" class="form-select mt-2">
+                        <option value="cs" disabled selected>Select a category</option>
+                        @foreach (var c in ViewBag.Categories)
+                        {
+                            <option value="@c.CategoryId">@c.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                </div>
+                <div class="form-group mt-3">
+                    <a asp-action="Index">Back To List</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
